@@ -31,14 +31,22 @@ const Portfolio = () => {
   return (
     <section id="portfolio" className="py-24 bg-neutral-900">
       <div className="max-w-6xl mx-auto px-6 text-center">
-        <h2 className="text-4xl md:text-5xl font-bold mb-16 text-white">
+        <motion.h2 className="text-4xl md:text-5xl font-bold mb-16 text-white"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true}}
+        transition={{ duration: 1 }}>
           Vybrané projekty
-        </h2>
+        </motion.h2>
+
         <div className="grid md:grid-cols-2 gap-10">
           {projects.map((p, i) => (
             <motion.div
               key={i}
               whileHover={{ scale: 1.03 }}
+              initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
+              whileInView={{ opacity: 1, x: 0}}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
               className="bg-neutral-800 border border-neutral-700 rounded-xl overflow-hidden shadow-lg hover:shadow-indigo-500/30 transition"
             >
               <img src={p.img} alt={p.title} className="w-full h-64 object-cover" />

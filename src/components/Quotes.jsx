@@ -18,16 +18,24 @@ const Quotes = () => {
 
   return (
     <section id="testimonials" className="py-24 bg-neutral-900 text-center">
-      <h2 className="text-4xl md:text-5xl font-bold mb-16 text-white">
+      <motion.h2 className="text-4xl md:text-5xl font-bold mb-16 text-white"
+      initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true}}
+        transition={{ duration: 1 }}>
         Co říkají klienti
-      </h2>
+      </motion.h2>
 
       <div className="flex flex-col lg:flex-row overflow-x-auto gap-6 px-6 snap-x scrollbar-hide justify-center items-center">
         {quotes.map((q, i) => (
           <motion.div
             key={i}
-            whileHover={{ scale: 0.98 }}
-            className="snap-center min-w-[300px] max-w-sm bg-neutral-800 border border-neutral-700 text-slate-200 p-6 rounded-lg shadow-md flex flex-col justify-between hover:border-indigo-500 transition: duration-300"
+            whileHover={{ scale: 0.98, transition: { duration: 0.1 } }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: i * 0.2 }}
+            viewport={{ once: true }}
+            className="snap-center min-w-[300px] max-w-sm bg-neutral-800 border border-neutral-700 text-slate-200 p-6 rounded-lg shadow-md flex flex-col justify-between hover:border-indigo-500 transition duration-300"
           >
             <p className="italic mb-4">{q.text}</p>
             <span className="text-sm text-slate-400">{q.author}</span>

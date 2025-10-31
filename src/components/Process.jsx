@@ -27,16 +27,22 @@ const Process = () => {
 
   return (
     <section id="process" className="py-24 bg-neutral-950 text-center">
-      <h2 className="text-4xl md:text-5xl font-bold mb-16 text-white">
+      <motion.h2 className="text-4xl md:text-5xl font-bold mb-16 text-white"
+      initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true}}
+        transition={{ duration: 1 }}>
         Jak pracuji
-      </h2>
+      </motion.h2>
       <div className="max-w-5xl mx-auto grid md:grid-cols-4 gap-10 px-6">
         {steps.map((s, i) => (
           <motion.div
             key={i}
-            whileHover={{ y: -5 }}
-            transition={{ type: "spring", stiffness: 200 }}
-            className="bg-neutral-900 border border-neutral-800 rounded-xl p-6 shadow-lg hover:shadow-indigo-500/20 transition text-slate-300"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: i * 0.2 }}
+            viewport={{once: true}}
+            className="bg-neutral-900 border border-neutral-800 rounded-xl p-6 shadow-lg hover:shadow-indigo-500/50 transition duration-300 text-slate-300"
           >
             <div className="flex justify-center mb-4">{s.icon}</div>
             <h3 className="text-lg font-semibold text-indigo-400 mb-2">

@@ -23,14 +23,22 @@ const Services = () => {
   return (
     <section id="services" className="py-24 bg-neutral-950">
       <div className="max-w-6xl mx-auto px-6 text-center">
-        <h2 className="text-4xl md:text-5xl font-bold mb-16 text-white">
+        <motion.h2 className="text-4xl md:text-5xl font-bold mb-16 text-white"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true}}
+        transition={{ duration: 1 }}>
           Co nabízím
-        </h2>
+        </motion.h2>
         <div className="grid md:grid-cols-3 gap-10">
           {items.map((item, i) => (
             <motion.div
               key={i}
               whileHover={{ scale: 1.05 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.2 }}
+              viewport={{once: true}}
               className="bg-neutral-900 border border-neutral-800 rounded-xl p-8 shadow-lg hover:shadow-indigo-500/20 transition"
             >
               <div className="mb-4 flex justify-center">{item.icon}</div>
